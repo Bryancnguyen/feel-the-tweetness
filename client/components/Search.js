@@ -6,6 +6,7 @@ const Search = React.createClass({
 
   handleSubmit(e) {
     this.setState({value: e.target.value});
+    // call backend function pass
     console.log(this);
   },
   render() {
@@ -18,11 +19,13 @@ const Search = React.createClass({
                        <div className="input-field col s12">
                            <i className="material-icons prefix"></i>
                            <input value={tweet} type="text" id="autocomplete-input" placeholder="search a hashtag and start feeling" className="autocomplete"/>
-                             <div className="click-button">
-                             <Link to="/feeltweet"><a className="waves-effect waves-light btn-large" onClick={this.handleSubmit.bind(this)}>Start To Feel</a></Link>
-                             </div>
-                           </div>
+                       </div>
                    </div>
+               </div>
+               <div className="row">
+                 <div className="click-button">
+                  <a className="waves-effect waves-light btn-large" onClick={this.handleSubmit.bind(this)}>Start To Feel</a>
+                 </div>
                </div>
            </div>
        <div className="plane1">

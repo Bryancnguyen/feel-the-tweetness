@@ -81,20 +81,13 @@ span {
 /*
     floating emojis
 */
-.emoji1 {
-    width: 64px;
-    height: 64px;
-    /*background-image: url('1.png');*/
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 64;
-    z-index: 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translateX();
+.emoji {
+    font-size: 100px;
+    margin: auto;
+    text-align: center;
 
 }
+
 
 
 .plane1 {
