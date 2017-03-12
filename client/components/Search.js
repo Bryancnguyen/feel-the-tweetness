@@ -1,14 +1,33 @@
 import React from 'react';
 import { Link } from 'react-router';
-import Tweet from './Tweet';
+import Tweets from './Tweets';
+import Emoji from './Emoji';
 
-const Search = React.createClass({
+class Search extends React.Component {
+
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            inputValue: "",
+            twitterQuery: ""
+        }
+
+        this.handleInputChange = this.handleInputChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    handleInputChange(e) {
+        this.setState({inputValue: e.target.value});
+    }
 
   handleSubmit(e) {
-    this.setState({value: e.target.value});
+      this.setState({twitterQuery: this.state.inputValue});
+      console.log(this);
     // call backend function pass
-    console.log(this);
-  },
+    
+  }
+
   render() {
     const {tweet} = 'hi';
     return (
@@ -18,13 +37,13 @@ const Search = React.createClass({
                    <div className="row">
                        <div className="input-field col s12">
                            <i className="material-icons prefix"></i>
-                           <input value={tweet} type="text" id="autocomplete-input" placeholder="search a hashtag and start feeling" className="autocomplete"/>
+                           <input value={this.state.inputValue} onChange={this.handleInputChange} type="text" id="autocomplete-input" placeholder="search a hashtag and start feeling" className="autocomplete"/>
                        </div>
                    </div>
                </div>
                <div className="row">
                  <div className="click-button">
-                  <a className="waves-effect waves-light btn-large" onClick={this.handleSubmit.bind(this)}>Start To Feel</a>
+                  <a className="waves-effect waves-light btn-large" onClick={this.handleSubmit}>Start To Feel</a>
                  </div>
                </div>
            </div>
@@ -33,11 +52,11 @@ const Search = React.createClass({
        </div>
    <div className="result-box">
   </div>
-  <Tweet tweet={tweet} {...this.props} />
-
+    <Emoji />
+    <Tweets query = {this.state.twitterQuery}/>
   </div>
     )
   }
-});
+};
 
 export default Search;
