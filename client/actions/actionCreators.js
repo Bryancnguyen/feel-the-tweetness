@@ -1,8 +1,12 @@
 
+export const FETCH_TWEET = 'FETCH_TWEET';
+
+
+
 // add tweet
-export function addTweet(tweet) {
+export function fetchTweet(tweet) {
   return {
-    type: 'SEND_TWEET',
+    type: 'FETCH_TWEET',
     tweet
   }
 }
