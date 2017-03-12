@@ -9,7 +9,6 @@ require("./ionicons.min.css");
 
 // Import Components
 import App from './components/App';
-import Tweet from './components/Tweet';
 import Search from './components/Search';
 
 // import react router deps
@@ -22,7 +21,6 @@ const router = (
     <Router history={history}>
       <Route path="/" component={App}>
         <IndexRoute component={Search}></IndexRoute>
-        <Route path="/feeltweet" component={Tweet}></Route>
       </Route>
     </Router>
   </Provider>
