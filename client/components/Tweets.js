@@ -21,7 +21,11 @@ class Tweets extends React.Component {
       sourceType: 'url',
       url: `https://twitter.com/${this.props.query}`
     },
-      document.getElementById('twitterTimeline')
+      document.getElementById('twitterTimeline'),
+      {
+        height: 380,
+        width: 400
+      }
     );
   }
 
