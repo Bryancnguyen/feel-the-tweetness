@@ -100,6 +100,10 @@ testData =
 }
 
 app.get('/feelit/:query', function(req, res) {
+  //To enable the full flow:
+    //• comment the line regarding testData
+    //• comment out the testData const set up above
+    //• uncomment the line below;
   // tweetToSongs(req.params.query, res);
   res.json(testData);
 });

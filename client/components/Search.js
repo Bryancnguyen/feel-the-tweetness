@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 import Tweets from './Tweets';
 import Emoji from './Emoji';
+import Spotify from './Spotify';
 
 class Search extends React.Component {
 
@@ -10,7 +11,8 @@ class Search extends React.Component {
 
         this.state = {
             inputValue: "",
-            twitterQuery: "twitter"
+            twitterQuery: "twitter",
+            tracksUris: []
         }
 
         this.handleInputChange = this.handleInputChange.bind(this);
@@ -22,13 +24,12 @@ class Search extends React.Component {
     }
 
   handleSubmit(e) {
+      const receiveTracks = res => {this.setState({tracksUris: res.uris})};
       this.setState({twitterQuery: this.state.inputValue});
-      console.log(this);
-    // call backend function pass
     $.ajax({
         method: "GET",
         url: `/feelit/${this.state.twitterQuery}`,
-        success: function(res) {console.log(res)},
+        success: receiveTracks,
         error: function(res) {alert("An error has occurred: " + res.status + " - " + res.statusText)}
     });
     
@@ -61,8 +62,11 @@ class Search extends React.Component {
        </div>
    <div className="result-box">
   </div>
-    <Emoji />
-    <Tweets query = {this.state.twitterQuery}/>
+    <div className="search-results">
+        <Emoji />
+        <Tweets query = {this.state.twitterQuery}/>
+        <Spotify tracks = {this.state.tracksUris}/>
+    </div>
   </div>
     )
   }

@@ -163,6 +163,10 @@ footer p {
     margin-top: 20px
 }
 
+.search-results {
+    display: flex;
+}
+
 .tweets {
     width: 30%;
     margin: 0 40px;    
