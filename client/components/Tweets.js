@@ -5,16 +5,34 @@ import Comments from './Test';
 class Tweets extends React.Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      twitterQuery: "bla"
+    }
   }
+
+  componentWillReceiveProps() {
+    // console.log(this.props.query);
+    // if (this.props.query.length > 0) this.setState({twitterQuery: this.props.query});
+    document.getElementsByClassName("tweets")[0].innerHTML = '<div id="twitterTimeline"></div>';
+
+    twttr.widgets.createTimeline(
+    {
+      sourceType: 'url',
+      url: `https://twitter.com/${this.props.query}`
+    },
+      document.getElementById('twitterTimeline')
+    );
+  }
+
+  componentWillUpdate() {
+  }
+
   render() {
 
     return(
       <div className="tweets">
-        <a className="twitter-timeline"
-          data-width="400"
-          data-height="400"
-          data-theme="light"
-          href="https://twitter.com/TwitterDev/lists/national-parks">A Twitter List by TwitterDev</a>
+
       </div>
     );
  }

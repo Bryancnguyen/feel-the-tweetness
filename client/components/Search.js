@@ -10,7 +10,7 @@ class Search extends React.Component {
 
         this.state = {
             inputValue: "",
-            twitterQuery: ""
+            twitterQuery: "twitter"
         }
 
         this.handleInputChange = this.handleInputChange.bind(this);
