@@ -25,7 +25,16 @@ class Search extends React.Component {
       this.setState({twitterQuery: this.state.inputValue});
       console.log(this);
     // call backend function pass
+    $.ajax({
+        method: "GET",
+        url: `/feelit/${this.state.twitterQuery}`,
+        success: function(res) {console.log(res)},
+        error: function(res) {alert("An error has occurred: " + res.status + " - " + res.statusText)}
+    });
     
+  }
+
+  componentWillMount() {
   }
 
   render() {
